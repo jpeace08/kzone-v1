@@ -1,0 +1,28 @@
+.screenShort {
+  overflow-y: scroll;
+  height: 82vh !important;
+}
+.custom-button {
+}
+button:active {
+  background-color: red;
+}
+._c {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.ant-popover-inner-content {
+  width: 250px;
+}
+.ant-popover {
+  position: fixed !important;
+}
+
+.page-header {
+  .page-logo {
+    img {
+      height: 28px;
+    }
+  }
+}

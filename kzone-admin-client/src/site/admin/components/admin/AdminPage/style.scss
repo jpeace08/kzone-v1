@@ -1,0 +1,70 @@
+.admin-page {
+  .body-header {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    color: #1b75bb;
+    margin-bottom: 10px;
+    display: flex;
+    .button {
+      background: linear-gradient(90deg, #1b75bb 0%, #26a9e0 100%),
+        rgba(0, 0, 0, 0.05);
+      border: none;
+      outline: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px;
+      font-size: 12px;
+      min-width: 100px;
+      border-radius: 4px;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.1px;
+      color: #ffffff;
+    }
+    .toolbar {
+      flex: 1;
+      justify-content: flex-end;
+      display: flex;
+    }
+  }
+  .panel-toolbar {
+    .button {
+      // background: linear-gradient(90deg, #1b75bb 0%, #26a9e0 100%),
+      //   rgba(0, 0, 0, 0.05);
+      background: #614cda;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 10px;
+      font-size: 12px;
+      min-width: 100px;
+      border-radius: 4px;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.1px;
+      color: #ffffff;
+      height: auto;
+      margin: 5px;
+    }
+  }
+  .panel-hdr {
+    i {
+      color: #0090da;
+      font-size: 27px;
+      padding-right: 15px;
+    }
+    .fa-spinner-third {
+      padding-right: 0px;
+    }
+    .ant-select,
+    .ant-calendar-picker {
+      i,
+      svg {
+        font-size: initial !important;
+      }
+    }
+  }
+}

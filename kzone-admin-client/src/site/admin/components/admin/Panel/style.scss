@@ -1,0 +1,23 @@
+.panel {
+  .panel-hdr {
+    border-bottom: none;
+  }
+  .ui-sortable-handle {
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #0090da;
+  }
+  .panel-toolbar {
+    .toolbar {
+      margin-right: 10px;
+    }
+  }
+  .icon-panel {
+    max-width: 25px;
+    max-height: 23px;
+    padding: 0;
+    margin: 0 8px 0 10px;
+  }
+}

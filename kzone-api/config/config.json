@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "jpeace08",
+    "password": "Mkhc@icc2003",
+    "database": "kzonedb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "jpeace08",
+    "password": "Mkhc@icc2003",
+    "database": "kzonedb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "jpeace08",
+    "password": "Mkhc@icc2003",
+    "database": "kzonedb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

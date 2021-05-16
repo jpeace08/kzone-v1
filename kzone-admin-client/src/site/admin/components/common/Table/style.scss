@@ -1,0 +1,203 @@
+.custom-table {
+  // .table-row-light {
+  //   background-color: #ffffff;
+  // }
+  // .table-row-dark {
+  //   background-color: #fbfbfb;
+  // }
+  .table-row-selected {
+    background-color: #ebf5ea;
+  }
+
+  .ant-table-expanded-row {
+    // background-color: #ebf5ea;
+  }
+
+  th.ant-table-fixed-columns-in-body {
+    background: #0090da;
+  }
+
+  .ant-table table {
+    border-radius: 0 !important;
+  }
+  .ant-table-thead {
+    border-radius: 0px;
+  }
+  .ant-table-fixed-right table {
+    border-left: none;
+  }
+  .ant-table-column-title,
+  .ant-table-thead {
+    color: white;
+    font-weight: bold;
+    th {
+      padding: 0;
+    }
+    .title-box {
+      background: #0090da;
+      padding: 0 10px;
+      min-height: 45px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      justify-content: center;
+      color: white;
+      white-space: pre;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .addition-box {
+      background: #e6f7ff;
+      padding: 10px;
+      min-height: 55px;
+      .ant-select {
+        width: 100%;
+      }
+    }
+  }
+
+  .ant-table-header {
+    .ant-table-thead {
+      .ant-table-cell-fix-right {
+        right: 0 !important;
+      }
+      .ant-table-header-column {
+        width: 100%;
+      }
+    }
+  }
+  .ant-table-hide-scrollbar {
+    display: flex;
+    .ant-table-fixed {
+      flex: 1;
+    }
+  }
+
+  .custom-table.custom {
+    .ant-table-ping-right:not(.ant-table-has-fix-right)
+      .ant-table-container::after {
+      box-shadow: none !important;
+    }
+    .ant-table-header {
+      .ant-table-thead {
+        th {
+          padding: 0;
+        }
+      }
+    }
+    .ant-table-body {
+      .ant-table-tbody {
+        .ant-table-row {
+          &:nth-child(2n) {
+            background: #e6f7ff;
+            .ant-table-cell-fix-right {
+              background: #e6f7ff;
+            }
+          }
+        }
+      }
+    }
+    .ant-table-scroll {
+      .ant-table-fixed-columns-in-body .col-action {
+        visibility: hidden !important;
+      }
+      .ant-table-thead {
+        .ant-table-fixed-columns-in-body
+          .ant-table-header-column
+          .custome-header {
+          background: #0090da;
+          .title-box {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+    .button-column-action {
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .btn-action {
+        width: 3px;
+      }
+    }
+    .button-column-action:hover {
+      background: #26a9e0;
+    }
+    .col-action {
+      display: flex;
+      justify-content: center;
+      .btn {
+        color: #fff;
+        margin: 2px;
+        cursor: pointer;
+      }
+      .btn-edit {
+        background: #0090da;
+        border-color: #0090da;
+      }
+      .btn-delete {
+        background: #d30126;
+        border-color: #d30126;
+      }
+      .btn-reset {
+        background: #4b37be;
+        border-color: #4b37be;
+      }
+    }
+    .ant-table table .ant-table-fixed-columns-in-body:not([colspan]) > * {
+      visibility: initial;
+    }
+    .ant-table {
+      overflow: hidden;
+      overflow-x: auto !important;
+      .ant-table-header {
+        overflow: initial !important;
+        margin-bottom: 0 !important;
+      }
+      .ant-table-body {
+        overflow: unset !important;
+        max-height: none !important;
+      }
+      .ant-table-scroll {
+        overflow-x: initial;
+      }
+    }
+    .ant-table-fixed-right {
+      .ant-table-body-outer {
+        .ant-table-body-inner {
+          overflow: unset !important;
+          max-height: none !important;
+        }
+      }
+    }
+    .ant-table-fixed-right {
+      border-radius: inherit;
+      .ant-table-tbody {
+        .ant-table-row {
+          &:nth-child(2n) {
+            background: #eaf2fd;
+          }
+        }
+      }
+      .title-box {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .panel-container {
+    .custom-table {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+image: docker:20.10.3
+services:
+  - docker:18.09.7-dind
+
+variables:
+  DOCKER_DRIVER: overlay
+  SPRING_PROFILES_ACTIVE: gitlab-ci
+
+cache:
+  key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
+  paths:
+    - node_modules
+    - yarn.lock
+
+stages:
+  - package
+  - deploy
+
+docker-build:
+  stage: package
+  script:
+    - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+    - docker build -t doanthehung/api-sample:web .
+    - docker push doanthehung/api-sample:web
+  interruptible: true
+  after_script:
+    - docker create --name app doanthehung/api-sample:web
+    - rm -rf ./node_modules
+    - docker cp app:/app/node_modules/ ./node_modules
+    - rm -rf yarn.lock
+    - docker cp app:/app/yarn.lock yarn.lock  
+  only:
+    refs:
+      - develop
+
+
+deploy:
+  image: ubuntu:20.04
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - ssh -o StrictHostKeyChecking=no -l ldt -p 3922 34.87.86.215 "docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD"
+    - ssh -o StrictHostKeyChecking=no -l ldt -p 3922 34.87.86.215 "docker pull doanthehung/api-sample:web"
+    - ssh -o StrictHostKeyChecking=no -l ldt -p 3922 34.87.86.215 "docker stop web || true"
+    - ssh -o StrictHostKeyChecking=no -l ldt -p 3922 34.87.86.215 "docker rm web || true"
+    - ssh -o StrictHostKeyChecking=no -l ldt -p 3922 34.87.86.215 "docker run -d --restart=always -p 8081:3000 --name web doanthehung/api-sample:web"
+  interruptible: true
+  only:
+    refs:
+      - develop
